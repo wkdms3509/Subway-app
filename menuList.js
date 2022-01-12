@@ -1,4 +1,7 @@
-var menuList = {
+"use strict";
+exports.__esModule = true;
+exports.menuList = void 0;
+exports.menuList = {
     menu: [
         { id: 1, type: '메뉴', name: '이탈리안 비엠티', price: 4900 },
         { id: 2, type: '메뉴', name: '이탈리안 비엠티 에그마요', price: 6500 },
