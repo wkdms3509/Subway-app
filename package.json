@@ -1,0 +1,24 @@
+{
+  "name": "Subway-order-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wkdms3509/Subway-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wkdms3509/Subway-app/issues"
+  },
+  "homepage": "https://github.com/wkdms3509/Subway-app#readme"
+}
