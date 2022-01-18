@@ -58,6 +58,14 @@ class App {
         const selectedBread = menuList.bread.find(bread => bread.id === breadNumber);
         if(selectedBread?.id) {
             this.receipe.push(selectedBread);
+        }
+    }
+
+    choiceCheese(cheeseNumber: number):void {
+        const selectedCheese = menuList.cheese.find(cheese => cheese.id === cheeseNumber);
+
+        if (selectedCheese) {
+            this.receipe.push(selectedCheese);
             console.log(this.receipe);
         }
     }
@@ -82,3 +90,4 @@ a.choiceMenu(2);
 // a.isToGo(true);
 a.choiceSize(1);
 a.choiceBread(3);
+a.choiceCheese(3);

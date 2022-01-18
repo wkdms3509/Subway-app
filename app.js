@@ -43,6 +43,12 @@ var App = /** @class */ (function () {
         var selectedBread = menuList_js_1.menuList.bread.find(function (bread) { return bread.id === breadNumber; });
         if (selectedBread === null || selectedBread === void 0 ? void 0 : selectedBread.id) {
             this.receipe.push(selectedBread);
+        }
+    };
+    App.prototype.choiceCheese = function (cheeseNumber) {
+        var selectedCheese = menuList_js_1.menuList.cheese.find(function (cheese) { return cheese.id === cheeseNumber; });
+        if (selectedCheese) {
+            this.receipe.push(selectedCheese);
             console.log(this.receipe);
         }
     };
@@ -64,3 +70,4 @@ a.choiceMenu(2);
 // a.isToGo(true);
 a.choiceSize(1);
 a.choiceBread(3);
+a.choiceCheese(3);
