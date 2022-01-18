@@ -70,7 +70,14 @@ class App {
         }
     }
 
-    isToGo(answer: boolean): number {
+    choiceVegetable(vegetableNumber: number): void {
+        const selectedVegetable = [ menuList.vegetable[vegetableNumber]];
+        if (selectedVegetable) {
+            // this.receipe.push(selectedVegetable);
+        }
+    }
+
+    toGo(answer: boolean): number {
         if(answer) {
             // 포장
             const result = this.totalPrice = this.totalPrice - 2000;
@@ -87,7 +94,8 @@ const a = new App();
 
 // console.log(a.showMenu());
 a.choiceMenu(2);
-// a.isToGo(true);
+// a.toGo(true);
 a.choiceSize(1);
 a.choiceBread(3);
 a.choiceCheese(3);
+a.choiceVegetable(2);

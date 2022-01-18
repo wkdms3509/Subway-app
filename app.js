@@ -52,7 +52,15 @@ var App = /** @class */ (function () {
             console.log(this.receipe);
         }
     };
-    App.prototype.isToGo = function (answer) {
+    App.prototype.choiceVegetable = function (vegetableNumber) {
+        var selectedVegetable = [menuList_js_1.menuList.vegetable[vegetableNumber]];
+        console.log(selectedVegetable);
+        // if (selectedVegetable) {
+        // }
+        // this.receipe.push(selectedVegetable);
+        // console.log(this.receipe);
+    };
+    App.prototype.toGo = function (answer) {
         if (answer) {
             // 포장
             var result = this.totalPrice = this.totalPrice - 2000;
@@ -67,7 +75,8 @@ var App = /** @class */ (function () {
 var a = new App();
 // console.log(a.showMenu());
 a.choiceMenu(2);
-// a.isToGo(true);
+// a.toGo(true);
 a.choiceSize(1);
 a.choiceBread(3);
 a.choiceCheese(3);
+a.choiceVegetable(2);
