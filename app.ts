@@ -1,15 +1,21 @@
 import { menuList } from './menuList.js';
 
-class App {
-    public receipe: [];
-    public totalPrice: number;
-    private _isTogo: boolean;
-    private _hasVaccinePass: boolean;
+interface Receipe {
+    id?: number,
+    type?: string,
+    name?: string,
+    price?: number,
+    size?:string
+}
 
-    constructor(isTogo: boolean) {
+class App {
+    receipe: Receipe[];
+    totalPrice: number;
+    _hasVaccinePass: boolean;
+
+    constructor() {
         this.receipe = [];
         this.totalPrice = 0;
-        this._isTogo = isTogo;
         this._hasVaccinePass = false;
     }
 
@@ -26,8 +32,44 @@ class App {
         console.log('----------------');
     }
 
+    choiceMenu(menuNumber: number):void {
+        const selectedMenu = menuList.menu.find(food => food.id === menuNumber);
+        if(selectedMenu && selectedMenu.price) {
+            this.receipe = [ selectedMenu ];
+            this.totalPrice = this.totalPrice + selectedMenu.price;
+            // console.log(this.totalPrice);
+        }
+    }
+
+    choiceSize(sizeNumber: number):void {
+        const selectedSize = menuList.size.find(breadSize => breadSize.id === sizeNumber);
+        // 기본 사이즈 (추가 요금 없음)
+        if(selectedSize?.id === 1) {
+            this.receipe.push(selectedSize);
+        }
+        // 큰 사이즈 (추가 요금 발생)
+        if(selectedSize?.id === 2) {
+            this.receipe.push(selectedSize);
+            this.totalPrice = this.totalPrice + 2500;
+        }
+    }
+
+    isToGo(answer: boolean): number {
+        if(answer) {
+            // 포장
+            const result = this.totalPrice = this.totalPrice - 2000;
+            console.log(result);
+            return result;
+        }
+        //매장식사
+        return this.totalPrice;
+    }
+
 }
 
-const a = new App(true);
+const a = new App();
 
-console.log(a.showMenu());
+// console.log(a.showMenu());
+a.choiceMenu(2);
+// a.isToGo(true);
+a.choiceSize(1);
