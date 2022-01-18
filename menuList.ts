@@ -176,8 +176,8 @@ export const menuList: orderProcess = {
         {id: 11, type: '소스', name: '후추'}
     ],
     option: [
-        {name: '세트', price: 2000},
-        {name: '쿠키', price: 1000}
+        {id: 1, name: '세트', price: 2000},
+        {id: 2, name: '쿠키', price: 1000}
     ]
 }
 
