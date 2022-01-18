@@ -29,12 +29,20 @@ var App = /** @class */ (function () {
     };
     App.prototype.choiceSize = function (sizeNumber) {
         var selectedSize = menuList_js_1.menuList.size.find(function (breadSize) { return breadSize.id === sizeNumber; });
+        // 기본 사이즈 (추가 요금 없음)
+        if ((selectedSize === null || selectedSize === void 0 ? void 0 : selectedSize.id) === 1) {
+            this.receipe.push(selectedSize);
+        }
+        // 큰 사이즈 (추가 요금 발생)
         if ((selectedSize === null || selectedSize === void 0 ? void 0 : selectedSize.id) === 2) {
             this.receipe.push(selectedSize);
             this.totalPrice = this.totalPrice + 2500;
         }
-        if ((selectedSize === null || selectedSize === void 0 ? void 0 : selectedSize.id) === 1) {
-            this.receipe.push(selectedSize);
+    };
+    App.prototype.choiceBread = function (breadNumber) {
+        var selectedBread = menuList_js_1.menuList.bread.find(function (bread) { return bread.id === breadNumber; });
+        if (selectedBread === null || selectedBread === void 0 ? void 0 : selectedBread.id) {
+            this.receipe.push(selectedBread);
             console.log(this.receipe);
         }
     };
@@ -55,3 +63,4 @@ var a = new App();
 a.choiceMenu(2);
 // a.isToGo(true);
 a.choiceSize(1);
+a.choiceBread(3);

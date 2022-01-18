@@ -54,6 +54,14 @@ class App {
         }
     }
 
+    choiceBread(breadNumber: number):void {
+        const selectedBread = menuList.bread.find(bread => bread.id === breadNumber);
+        if(selectedBread?.id) {
+            this.receipe.push(selectedBread);
+            console.log(this.receipe);
+        }
+    }
+
     isToGo(answer: boolean): number {
         if(answer) {
             // 포장
@@ -73,3 +81,4 @@ const a = new App();
 a.choiceMenu(2);
 // a.isToGo(true);
 a.choiceSize(1);
+a.choiceBread(3);
