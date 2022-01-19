@@ -49,16 +49,22 @@ var App = /** @class */ (function () {
         var selectedCheese = menuList_js_1.menuList.cheese.find(function (cheese) { return cheese.id === cheeseNumber; });
         if (selectedCheese) {
             this.receipe.push(selectedCheese);
-            console.log(this.receipe);
         }
     };
     App.prototype.choiceVegetable = function (vegetableNumber) {
         var selectedVegetable = [menuList_js_1.menuList.vegetable[vegetableNumber]];
-        console.log(selectedVegetable);
-        // if (selectedVegetable) {
-        // }
-        // this.receipe.push(selectedVegetable);
-        // console.log(this.receipe);
+        if (selectedVegetable) {
+            // this.receipe.push(selectedVegetable);
+        }
+    };
+    App.prototype.choiceSauce = function (sauceNumber) {
+        var selectedSauce = menuList_js_1.menuList.sauce.find(function (sauce) { return sauce.id === sauceNumber; });
+        if (selectedSauce) {
+            this.receipe.push(selectedSauce);
+            console.log("\uC18C\uC2A4: ".concat(selectedSauce.name));
+            console.log(this.receipe);
+        }
+        return;
     };
     App.prototype.toGo = function (answer) {
         if (answer) {
@@ -79,4 +85,5 @@ a.choiceMenu(2);
 a.choiceSize(1);
 a.choiceBread(3);
 a.choiceCheese(3);
-a.choiceVegetable(2);
+// a.choiceVegetable(2);
+a.choiceSauce(5);

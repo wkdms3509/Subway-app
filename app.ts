@@ -63,10 +63,8 @@ class App {
 
     choiceCheese(cheeseNumber: number):void {
         const selectedCheese = menuList.cheese.find(cheese => cheese.id === cheeseNumber);
-
         if (selectedCheese) {
             this.receipe.push(selectedCheese);
-            console.log(this.receipe);
         }
     }
 
@@ -76,6 +74,19 @@ class App {
             // this.receipe.push(selectedVegetable);
         }
     }
+
+    choiceSauce(sauceNumber: number):void {
+        const selectedSauce = menuList.sauce.find(sauce => sauce.id === sauceNumber)
+        if (selectedSauce) {
+            this.receipe.push(selectedSauce);
+            console.log(`소스: ${selectedSauce.name}`);
+            console.log(this.receipe);
+        }
+        return ;
+    }
+
+
+
 
     toGo(answer: boolean): number {
         if(answer) {
@@ -98,4 +109,5 @@ a.choiceMenu(2);
 a.choiceSize(1);
 a.choiceBread(3);
 a.choiceCheese(3);
-a.choiceVegetable(2);
+// a.choiceVegetable(2);
+a.choiceSauce(5);
