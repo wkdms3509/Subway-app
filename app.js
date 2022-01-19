@@ -68,11 +68,7 @@ var App = /** @class */ (function () {
         var selectedOption = menuList_js_1.menuList.option.find(function (option) { return option.id === optionNumber; });
         if (selectedOption && selectedOption.price) {
             this.receipe.push(selectedOption);
-            console.log("\uC635\uC158 \uCD94\uAC00 \uC804 \uAC00\uACA9: ".concat(this.totalPrice));
             this.totalPrice = this.totalPrice + selectedOption.price;
-            console.log(this.receipe);
-            console.log("\uC635\uC158: ".concat(selectedOption.name));
-            console.log("\uC635\uC158 \uCD94\uAC00 \uD6C4 \uAC00\uACA9: ".concat(this.totalPrice));
         }
         return;
     };
@@ -86,6 +82,15 @@ var App = /** @class */ (function () {
         //매장식사
         return this.totalPrice;
     };
+    App.prototype.payForOrderDetail = function (money) {
+        if (money === this.totalPrice || money >= this.totalPrice) {
+            var result = money - this.totalPrice;
+            return result;
+        }
+        console.log('금액이 부족합니다.');
+        console.log(money - this.totalPrice);
+        return money - this.totalPrice;
+    };
     return App;
 }());
 var a = new App();
@@ -98,3 +103,4 @@ a.choiceCheese(3);
 // a.choiceVegetable(2);
 a.choiceSauce(5);
 a.choiceOption(2);
+a.payForOrderDetail(6000);

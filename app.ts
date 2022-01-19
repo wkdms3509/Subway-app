@@ -103,6 +103,17 @@ class App {
         return this.totalPrice;
     }
 
+    payForOrderDetail(money: number): number {
+        if (money === this.totalPrice || money >= this.totalPrice) {
+            const result = money - this.totalPrice;
+            return result;
+        }
+        console.log('금액이 부족합니다.');
+        console.log(money - this.totalPrice);
+        
+        return money - this.totalPrice;
+    }
+
 }
 
 const a = new App();
@@ -116,3 +127,4 @@ a.choiceCheese(3);
 // a.choiceVegetable(2);
 a.choiceSauce(5);
 a.choiceOption(2);
+a.payForOrderDetail(6000);
