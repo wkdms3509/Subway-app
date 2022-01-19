@@ -17,7 +17,7 @@ class App {
         this.totalPrice = 0;
     }
 
-    togo() {
+    showInitialMenu() {
         console.log('------menu------');
         console.log('1. 매장');
         console.log('2. 포장');
@@ -130,7 +130,7 @@ class App {
 const a = new App();
 
 // console.log(a.showMenu());
-a.togo();
+a.showInitialMenu();
 a.isToGo(false);
 // a.choiceMenu(2);
 // a.choiceSize(1);
