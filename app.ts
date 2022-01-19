@@ -76,17 +76,21 @@ class App {
     }
 
     choiceSauce(sauceNumber: number):void {
-        const selectedSauce = menuList.sauce.find(sauce => sauce.id === sauceNumber)
+        const selectedSauce = menuList.sauce.find(sauce => sauce.id === sauceNumber);
         if (selectedSauce) {
             this.receipe.push(selectedSauce);
-            console.log(`소스: ${selectedSauce.name}`);
-            console.log(this.receipe);
         }
         return ;
     }
 
-
-
+    choiceOption(optionNumber: number):void {
+        const selectedOption = menuList.option.find(option => option.id === optionNumber);
+        if (selectedOption && selectedOption.price) {
+            this.receipe.push(selectedOption);        
+            this.totalPrice = this.totalPrice + selectedOption.price;
+        }
+        return ;
+    }
 
     toGo(answer: boolean): number {
         if(answer) {
@@ -111,3 +115,4 @@ a.choiceBread(3);
 a.choiceCheese(3);
 // a.choiceVegetable(2);
 a.choiceSauce(5);
+a.choiceOption(2);

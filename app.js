@@ -61,8 +61,18 @@ var App = /** @class */ (function () {
         var selectedSauce = menuList_js_1.menuList.sauce.find(function (sauce) { return sauce.id === sauceNumber; });
         if (selectedSauce) {
             this.receipe.push(selectedSauce);
-            console.log("\uC18C\uC2A4: ".concat(selectedSauce.name));
+        }
+        return;
+    };
+    App.prototype.choiceOption = function (optionNumber) {
+        var selectedOption = menuList_js_1.menuList.option.find(function (option) { return option.id === optionNumber; });
+        if (selectedOption && selectedOption.price) {
+            this.receipe.push(selectedOption);
+            console.log("\uC635\uC158 \uCD94\uAC00 \uC804 \uAC00\uACA9: ".concat(this.totalPrice));
+            this.totalPrice = this.totalPrice + selectedOption.price;
             console.log(this.receipe);
+            console.log("\uC635\uC158: ".concat(selectedOption.name));
+            console.log("\uC635\uC158 \uCD94\uAC00 \uD6C4 \uAC00\uACA9: ".concat(this.totalPrice));
         }
         return;
     };
@@ -87,3 +97,4 @@ a.choiceBread(3);
 a.choiceCheese(3);
 // a.choiceVegetable(2);
 a.choiceSauce(5);
+a.choiceOption(2);
