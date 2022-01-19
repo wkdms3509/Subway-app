@@ -5,8 +5,30 @@ var App = /** @class */ (function () {
     function App() {
         this.receipe = [];
         this.totalPrice = 0;
-        this._hasVaccinePass = false;
     }
+    App.prototype.togo = function () {
+        console.log('------menu------');
+        console.log('1. 매장');
+        console.log('2. 포장');
+        console.log('----------------');
+    };
+    App.prototype.isToGo = function (answer, vaccinePassNumber) {
+        if (answer) {
+            // 포장
+            var result = this.totalPrice - 2000;
+            return result;
+        }
+        //매장식사
+        else if (!answer && vaccinePassNumber) {
+            // if(!answer && vaccinePassNumber) {
+            //     console.log('매장식사 가능');
+            // }
+            console.log('매장식사 가능');
+        }
+        else {
+            console.log('매장식사 불가능');
+        }
+    };
     App.prototype.showMenu = function () {
         console.log('------menu------');
         console.log('1. 이탈리안 비엠티');
@@ -72,16 +94,6 @@ var App = /** @class */ (function () {
         }
         return;
     };
-    App.prototype.toGo = function (answer) {
-        if (answer) {
-            // 포장
-            var result = this.totalPrice = this.totalPrice - 2000;
-            console.log(result);
-            return result;
-        }
-        //매장식사
-        return this.totalPrice;
-    };
     App.prototype.payForOrderDetail = function (money) {
         if (money === this.totalPrice || money >= this.totalPrice) {
             var result = money - this.totalPrice;
@@ -95,12 +107,13 @@ var App = /** @class */ (function () {
 }());
 var a = new App();
 // console.log(a.showMenu());
-a.choiceMenu(2);
-// a.toGo(true);
-a.choiceSize(1);
-a.choiceBread(3);
-a.choiceCheese(3);
-// a.choiceVegetable(2);
-a.choiceSauce(5);
-a.choiceOption(2);
-a.payForOrderDetail(6000);
+a.togo();
+a.isToGo(false);
+// a.choiceMenu(2);
+// a.choiceSize(1);
+// a.choiceBread(3);
+// a.choiceCheese(3);
+// // a.choiceVegetable(2);
+// a.choiceSauce(5);
+// a.choiceOption(2);
+// a.payForOrderDetail(6000);

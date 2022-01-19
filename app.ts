@@ -11,12 +11,34 @@ interface Receipe {
 class App {
     receipe: Receipe[];
     totalPrice: number;
-    _hasVaccinePass: boolean;
 
     constructor() {
         this.receipe = [];
         this.totalPrice = 0;
-        this._hasVaccinePass = false;
+    }
+
+    togo() {
+        console.log('------menu------');
+        console.log('1. 매장');
+        console.log('2. 포장');
+        console.log('----------------');
+    }
+
+    isToGo(answer: boolean, vaccinePassNumber?: number) {
+        if(answer) {
+            // 포장
+            const result = this.totalPrice - 2000;
+            return result;
+        }
+        //매장식사
+        else if (!answer && vaccinePassNumber) {
+            // if(!answer && vaccinePassNumber) {
+            //     console.log('매장식사 가능');
+            // }
+            console.log('매장식사 가능');
+        } else {
+            console.log('매장식사 불가능');
+        }
     }
 
     showMenu() {
@@ -92,17 +114,6 @@ class App {
         return ;
     }
 
-    toGo(answer: boolean): number {
-        if(answer) {
-            // 포장
-            const result = this.totalPrice = this.totalPrice - 2000;
-            console.log(result);
-            return result;
-        }
-        //매장식사
-        return this.totalPrice;
-    }
-
     payForOrderDetail(money: number): number {
         if (money === this.totalPrice || money >= this.totalPrice) {
             const result = money - this.totalPrice;
@@ -119,12 +130,13 @@ class App {
 const a = new App();
 
 // console.log(a.showMenu());
-a.choiceMenu(2);
-// a.toGo(true);
-a.choiceSize(1);
-a.choiceBread(3);
-a.choiceCheese(3);
-// a.choiceVegetable(2);
-a.choiceSauce(5);
-a.choiceOption(2);
-a.payForOrderDetail(6000);
+a.togo();
+a.isToGo(false);
+// a.choiceMenu(2);
+// a.choiceSize(1);
+// a.choiceBread(3);
+// a.choiceCheese(3);
+// // a.choiceVegetable(2);
+// a.choiceSauce(5);
+// a.choiceOption(2);
+// a.payForOrderDetail(6000);
