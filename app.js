@@ -6,7 +6,46 @@ var App = /** @class */ (function () {
         this.receipe = [];
         this.totalPrice = 0;
     }
-    App.prototype.togo = function () {
+    App.prototype.init = function (number) {
+        switch (number) {
+            case 1:
+                this.showInitialMenu();
+                break;
+            case 2:
+                this.isToGo(false);
+                break;
+            case 3:
+                this.showMenu();
+                break;
+            case 4:
+                this.choiceMenu(5);
+                break;
+            case 5:
+                this.choiceSize(1);
+                break;
+            case 6:
+                this.choiceBread(2);
+                break;
+            case 7:
+                this.choiceCheese(3);
+                break;
+            case 8:
+                this.choiceVegetable(5);
+                break;
+            case 9:
+                this.choiceSauce(4);
+                break;
+            case 10:
+                this.choiceOption(2);
+                break;
+            case 11:
+                this.payForOrderDetail(5000);
+                break;
+            default:
+                break;
+        }
+    };
+    App.prototype.showInitialMenu = function () {
         console.log('------menu------');
         console.log('1. 매장');
         console.log('2. 포장');
@@ -16,6 +55,7 @@ var App = /** @class */ (function () {
         if (answer) {
             // 포장
             var result = this.totalPrice - 2000;
+            console.log('ok togo !');
             return result;
         }
         //매장식사
@@ -26,7 +66,7 @@ var App = /** @class */ (function () {
             console.log('매장식사 가능');
         }
         else {
-            console.log('매장식사 불가능');
+            throw "매장 이용이 불가능합니다.";
         }
     };
     App.prototype.showMenu = function () {
@@ -74,9 +114,13 @@ var App = /** @class */ (function () {
         }
     };
     App.prototype.choiceVegetable = function (vegetableNumber) {
-        var selectedVegetable = [menuList_js_1.menuList.vegetable[vegetableNumber]];
-        if (selectedVegetable) {
-            // this.receipe.push(selectedVegetable);
+        var selectedVegetable = menuList_js_1.menuList.vegetable.find(function (vegetable) { return vegetable.id === vegetableNumber; });
+        for (var i = 0; i < menuList_js_1.menuList.vegetable.length; i++) {
+            var allVegetable = menuList_js_1.menuList.vegetable[i];
+            this.receipe.push(allVegetable);
+            // 야채는 전체선택이 기본값. 인자로 받아온 야채를 선택제거
+            if (selectedVegetable) {
+            }
         }
     };
     App.prototype.choiceSauce = function (sauceNumber) {
@@ -99,21 +143,22 @@ var App = /** @class */ (function () {
             var result = money - this.totalPrice;
             return result;
         }
-        console.log('금액이 부족합니다.');
-        console.log(money - this.totalPrice);
+        console.log(this.receipe);
+        console.log("\uC9C0\uBD88 \uAE08\uC561 : ".concat(money, "\uC6D0 / \uACB0\uC81C \uAE08\uC561: ").concat(this.totalPrice, "\uC6D0"));
+        throw "".concat(money - this.totalPrice);
         return money - this.totalPrice;
     };
     return App;
 }());
 var a = new App();
-// console.log(a.showMenu());
-a.togo();
-a.isToGo(false);
-// a.choiceMenu(2);
-// a.choiceSize(1);
-// a.choiceBread(3);
-// a.choiceCheese(3);
-// // a.choiceVegetable(2);
-// a.choiceSauce(5);
-// a.choiceOption(2);
-// a.payForOrderDetail(6000);
+// a.init(1);
+// a.init(2);
+// a.init(3);
+// a.init(4);
+// a.init(5);
+// a.init(6);
+// a.init(7);
+a.init(8);
+// a.init(9);
+// a.init(10);
+// a.init(11);
