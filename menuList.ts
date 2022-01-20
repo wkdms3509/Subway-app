@@ -1,12 +1,3 @@
-// interface Menu {
-//     menu: Array<object>,
-//     size: Array<object>,
-//     bread: Array<object>,
-//     cheese: Array<object>,
-//     vegetable: Array<object>,
-//     sauce: Array<object>,
-//     option: Array<object>
-// }
 
 enum menuName {
     '이탈리안비엠티',
@@ -95,15 +86,6 @@ interface title {
     option: string
 }
 
-// interface Menu
-//     {
-//         id: number,
-//         type: menuType,
-//         name: menuName,
-//         price: number
-//     }
-
-// 성공
 interface foodType {
     id?: number,
     type?: string,
@@ -111,8 +93,6 @@ interface foodType {
     price?: number,
     size?:string
 }
-
-type simpleType = foodType[];
 
 interface orderProcess {
     menu: Array<foodType>,
@@ -180,12 +160,3 @@ export const menuList: orderProcess = {
         {id: 2, name: '쿠키', price: 1000}
     ]
 }
-
-function result(num: number) {
-    const a = menuList.menu.find(food => food.id === num);
-    console.log(a);
-    
-}
-
-
-console.log(result(2));

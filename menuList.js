@@ -1,13 +1,4 @@
 "use strict";
-// interface Menu {
-//     menu: Array<object>,
-//     size: Array<object>,
-//     bread: Array<object>,
-//     cheese: Array<object>,
-//     vegetable: Array<object>,
-//     sauce: Array<object>,
-//     option: Array<object>
-// }
 exports.__esModule = true;
 exports.menuList = void 0;
 var menuName;
@@ -136,8 +127,3 @@ exports.menuList = {
         { id: 2, name: '쿠키', price: 1000 }
     ]
 };
-function result(num) {
-    var a = exports.menuList.menu.find(function (food) { return food.id === num; });
-    console.log(a);
-}
-console.log(result(2));
