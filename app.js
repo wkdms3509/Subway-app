@@ -5,6 +5,7 @@ var App = /** @class */ (function () {
     function App() {
         this.receipe = [];
         this.totalPrice = 0;
+        this.myNumber = Math.floor(Math.random() * 10);
     }
     App.prototype.init = function (number) {
         switch (number) {
@@ -12,7 +13,7 @@ var App = /** @class */ (function () {
                 this.showInitialMenu();
                 break;
             case 2:
-                this.isToGo(false);
+                this.isToGo(true);
                 break;
             case 3:
                 this.showMenu();
@@ -39,7 +40,7 @@ var App = /** @class */ (function () {
                 this.choiceOption(2);
                 break;
             case 11:
-                this.payForOrderDetail(5000);
+                this.payForOrderDetail(10000);
                 break;
             default:
                 break;
@@ -55,7 +56,6 @@ var App = /** @class */ (function () {
         if (answer) {
             // 포장
             var result = this.totalPrice - 2000;
-            console.log('ok togo !');
             return result;
         }
         //매장식사
@@ -141,24 +141,25 @@ var App = /** @class */ (function () {
     App.prototype.payForOrderDetail = function (money) {
         if (money === this.totalPrice || money >= this.totalPrice) {
             var result = money - this.totalPrice;
+            this.myNumber;
+            console.log(this.myNumber);
             return result;
         }
         console.log(this.receipe);
         console.log("\uC9C0\uBD88 \uAE08\uC561 : ".concat(money, "\uC6D0 / \uACB0\uC81C \uAE08\uC561: ").concat(this.totalPrice, "\uC6D0"));
         throw "".concat(money - this.totalPrice);
-        return money - this.totalPrice;
     };
     return App;
 }());
-var a = new App();
-// a.init(1);
-// a.init(2);
-// a.init(3);
-// a.init(4);
-// a.init(5);
-// a.init(6);
-// a.init(7);
-a.init(8);
-// a.init(9);
-// a.init(10);
-// a.init(11);
+var app = new App();
+app.init(1);
+app.init(2);
+app.init(3);
+app.init(4);
+app.init(5);
+app.init(6);
+app.init(7);
+app.init(8);
+app.init(9);
+app.init(10);
+app.init(11);

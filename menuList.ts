@@ -69,6 +69,14 @@ enum breadSize {
     '30cm'
 }
 
+enum drink {
+    '콜라',
+    '사이다',
+    '환타',
+    '펩시',
+    '제로콜라'
+}
+
 interface MenuInfo {
     id: number;
     type: menuType;
@@ -156,7 +164,7 @@ export const menuList: orderProcess = {
         {id: 11, type: '소스', name: '후추'}
     ],
     option: [
-        {id: 1, name: '세트', price: 2000},
-        {id: 2, name: '쿠키', price: 1000}
+        {id: 1, name: '쿠키세트', price: 2000},
+        {id: 2, name: '쿠키+음료세트', price: 1000}
     ]
 }

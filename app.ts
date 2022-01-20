@@ -11,10 +11,12 @@ interface Receipe {
 class App {
     receipe: Receipe[];
     totalPrice: number;
+    myNumber: number;
 
     constructor() {
         this.receipe = [];
         this.totalPrice = 0;
+        this.myNumber = Math.floor(Math.random() * 10);
     }
 
     init(number: number) {
@@ -23,7 +25,7 @@ class App {
                 this.showInitialMenu();
                 break;
             case 2 :
-                this.isToGo(false);
+                this.isToGo(true);
                 break;
             case 3 :
                 this.showMenu();
@@ -50,7 +52,7 @@ class App {
                 this.choiceOption(2);
                 break;
             case 11 :
-                this.payForOrderDetail(5000);
+                this.payForOrderDetail(10000);
                 break;
             default :
                 break;
@@ -68,7 +70,6 @@ class App {
         if(answer) {
             // 포장
             const result = this.totalPrice - 2000;
-            console.log('ok togo !');
             return result;
         }
         //매장식사
@@ -100,7 +101,6 @@ class App {
         if(selectedMenu && selectedMenu.price) {
             this.receipe = [ selectedMenu ];
             this.totalPrice = this.totalPrice + selectedMenu.price;
-            // console.log(this.totalPrice);
         }
     }
 
@@ -136,9 +136,8 @@ class App {
         for (let i = 0; i < menuList.vegetable.length; i++) {
             const allVegetable = menuList.vegetable[i];
             this.receipe.push(allVegetable);
-            // 야채는 전체선택이 기본값. 인자로 받아온 야채를 선택제거
             if (selectedVegetable) {
-                
+                // 야채는 전체선택이 기본값. 인자로 받아온 야채를 선택제거
             }
         }
     }
@@ -163,26 +162,27 @@ class App {
     payForOrderDetail(money: number): number {
         if (money === this.totalPrice || money >= this.totalPrice) {
             const result = money - this.totalPrice;
+            this.myNumber;
+            console.log(this.myNumber);
             return result;
         }
         console.log(this.receipe);
         console.log(`지불 금액 : ${money}원 / 결제 금액: ${this.totalPrice}원`);
         throw `${money - this.totalPrice}`
-        return money - this.totalPrice;
     }
 
 }
 
-const a = new App();
+const app = new App();
 
-// a.init(1);
-// a.init(2);
-// a.init(3);
-// a.init(4);
-// a.init(5);
-// a.init(6);
-// a.init(7);
-a.init(8);
-// a.init(9);
-// a.init(10);
-// a.init(11);
+app.init(1);
+app.init(2);
+app.init(3);
+app.init(4);
+app.init(5);
+app.init(6);
+app.init(7);
+app.init(8);
+app.init(9);
+app.init(10);
+app.init(11);
