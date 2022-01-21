@@ -71,6 +71,14 @@ var breadSize;
     breadSize[breadSize["15cm"] = 0] = "15cm";
     breadSize[breadSize["30cm"] = 1] = "30cm";
 })(breadSize || (breadSize = {}));
+var drink;
+(function (drink) {
+    drink[drink["\uCF5C\uB77C"] = 0] = "\uCF5C\uB77C";
+    drink[drink["\uC0AC\uC774\uB2E4"] = 1] = "\uC0AC\uC774\uB2E4";
+    drink[drink["\uD658\uD0C0"] = 2] = "\uD658\uD0C0";
+    drink[drink["\uD3A9\uC2DC"] = 3] = "\uD3A9\uC2DC";
+    drink[drink["\uC81C\uB85C\uCF5C\uB77C"] = 4] = "\uC81C\uB85C\uCF5C\uB77C";
+})(drink || (drink = {}));
 exports.menuList = {
     menu: [
         { id: 1, type: '메뉴', name: '이탈리안비엠티', price: 4900 },
@@ -123,7 +131,7 @@ exports.menuList = {
         { id: 11, type: '소스', name: '후추' }
     ],
     option: [
-        { id: 1, name: '세트', price: 2000 },
-        { id: 2, name: '쿠키', price: 1000 }
+        { id: 1, name: '쿠키세트', price: 2000 },
+        { id: 2, name: '쿠키+음료세트', price: 1000 }
     ]
 };
