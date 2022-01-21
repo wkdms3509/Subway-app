@@ -8,7 +8,7 @@ interface Receipe {
     size?:string
 }
 
-class App {
+export class App {
     receipe: Receipe[];
     totalPrice: number;
     myNumber: number;
@@ -16,7 +16,7 @@ class App {
     constructor() {
         this.receipe = [];
         this.totalPrice = 0;
-        this.myNumber = Math.floor(Math.random() * 10);
+        this.myNumber = 0;
     }
 
     init(number: number) {
@@ -162,27 +162,12 @@ class App {
     payForOrderDetail(money: number): number {
         if (money === this.totalPrice || money >= this.totalPrice) {
             const result = money - this.totalPrice;
-            this.myNumber;
-            console.log(this.myNumber);
+            this.myNumber++;
             return result;
         }
         console.log(this.receipe);
         console.log(`지불 금액 : ${money}원 / 결제 금액: ${this.totalPrice}원`);
-        throw `${money - this.totalPrice}`
+        throw `${money - this.totalPrice}`;
     }
 
 }
-
-const app = new App();
-
-app.init(1);
-app.init(2);
-app.init(3);
-app.init(4);
-app.init(5);
-app.init(6);
-app.init(7);
-app.init(8);
-app.init(9);
-app.init(10);
-app.init(11);

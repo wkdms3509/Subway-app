@@ -1,11 +1,13 @@
 "use strict";
 exports.__esModule = true;
+exports.App = void 0;
 var menuList_js_1 = require("./menuList.js");
 var App = /** @class */ (function () {
     function App() {
         this.receipe = [];
         this.totalPrice = 0;
-        this.myNumber = Math.floor(Math.random() * 10);
+        // this.myNumber = Math.floor(Math.random() * 10);
+        this.myNumber = 0;
     }
     App.prototype.init = function (number) {
         switch (number) {
@@ -86,7 +88,6 @@ var App = /** @class */ (function () {
         if (selectedMenu && selectedMenu.price) {
             this.receipe = [selectedMenu];
             this.totalPrice = this.totalPrice + selectedMenu.price;
-            // console.log(this.totalPrice);
         }
     };
     App.prototype.choiceSize = function (sizeNumber) {
@@ -118,8 +119,8 @@ var App = /** @class */ (function () {
         for (var i = 0; i < menuList_js_1.menuList.vegetable.length; i++) {
             var allVegetable = menuList_js_1.menuList.vegetable[i];
             this.receipe.push(allVegetable);
-            // 야채는 전체선택이 기본값. 인자로 받아온 야채를 선택제거
             if (selectedVegetable) {
+                // 야채는 전체선택이 기본값. 인자로 받아온 야채를 선택제거
             }
         }
     };
@@ -141,7 +142,7 @@ var App = /** @class */ (function () {
     App.prototype.payForOrderDetail = function (money) {
         if (money === this.totalPrice || money >= this.totalPrice) {
             var result = money - this.totalPrice;
-            this.myNumber;
+            this.myNumber++;
             console.log(this.myNumber);
             return result;
         }
@@ -151,15 +152,4 @@ var App = /** @class */ (function () {
     };
     return App;
 }());
-var app = new App();
-app.init(1);
-app.init(2);
-app.init(3);
-app.init(4);
-app.init(5);
-app.init(6);
-app.init(7);
-app.init(8);
-app.init(9);
-app.init(10);
-app.init(11);
+exports.App = App;
