@@ -74,9 +74,6 @@ export class App {
         }
         //매장식사
         else if (!answer && vaccinePassNumber) {
-            // if(!answer && vaccinePassNumber) {
-            //     console.log('매장식사 가능');
-            // }
             console.log('매장식사 가능');
         } else {
             throw "매장 이용이 불가능합니다.";
