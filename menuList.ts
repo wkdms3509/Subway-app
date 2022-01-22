@@ -102,7 +102,7 @@ interface foodType {
     size?:string
 }
 
-interface orderProcess {
+interface Options {
     menu: Array<foodType>,
     size: Array<foodType>,
     bread: Array<foodType>,
@@ -112,7 +112,7 @@ interface orderProcess {
     option: Array<foodType>
 }
 
-export const menuList: orderProcess = {
+export const MenuData: Options = {
     menu: [
         {id: 1, type: '메뉴', name: '이탈리안비엠티', price: 4900},
         {id: 2, type: '메뉴', name: '이탈리안비엠티에그마요', price: 6500},

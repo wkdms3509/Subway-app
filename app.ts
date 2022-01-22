@@ -1,4 +1,4 @@
-import { menuList } from './menuList.js';
+import { MenuData } from './menuList.js';
 
 interface Receipe {
     id?: number,
@@ -94,7 +94,7 @@ export class App {
     }
 
     choiceMenu(menuNumber: number):void {
-        const selectedMenu = menuList.menu.find(food => food.id === menuNumber);
+        const selectedMenu = MenuData.menu.find(food => food.id === menuNumber);
         if(selectedMenu && selectedMenu.price) {
             this.receipe = [ selectedMenu ];
             this.totalPrice = this.totalPrice + selectedMenu.price;
@@ -102,7 +102,7 @@ export class App {
     }
 
     choiceSize(sizeNumber: number):void {
-        const selectedSize = menuList.size.find(breadSize => breadSize.id === sizeNumber);
+        const selectedSize = MenuData.size.find(breadSize => breadSize.id === sizeNumber);
         // 기본 사이즈 (추가 요금 없음)
         if(selectedSize?.id === 1) {
             this.receipe.push(selectedSize);
@@ -115,23 +115,23 @@ export class App {
     }
 
     choiceBread(breadNumber: number):void {
-        const selectedBread = menuList.bread.find(bread => bread.id === breadNumber);
+        const selectedBread = MenuData.bread.find(bread => bread.id === breadNumber);
         if(selectedBread?.id) {
             this.receipe.push(selectedBread);
         }
     }
 
     choiceCheese(cheeseNumber: number):void {
-        const selectedCheese = menuList.cheese.find(cheese => cheese.id === cheeseNumber);
+        const selectedCheese = MenuData.cheese.find(cheese => cheese.id === cheeseNumber);
         if (selectedCheese) {
             this.receipe.push(selectedCheese);
         }
     }
 
     choiceVegetable(vegetableNumber?: number): void {
-        const selectedVegetable = menuList.vegetable.find(vegetable => vegetable.id === vegetableNumber);
-        for (let i = 0; i < menuList.vegetable.length; i++) {
-            const allVegetable = menuList.vegetable[i];
+        const selectedVegetable = MenuData.vegetable.find(vegetable => vegetable.id === vegetableNumber);
+        for (let i = 0; i < MenuData.vegetable.length; i++) {
+            const allVegetable = MenuData.vegetable[i];
             this.receipe.push(allVegetable);
             if (selectedVegetable) {
                 // 야채는 전체선택이 기본값. 인자로 받아온 야채를 선택제거
@@ -140,7 +140,7 @@ export class App {
     }
 
     choiceSauce(sauceNumber: number):void {
-        const selectedSauce = menuList.sauce.find(sauce => sauce.id === sauceNumber);
+        const selectedSauce = MenuData.sauce.find(sauce => sauce.id === sauceNumber);
         if (selectedSauce) {
             this.receipe.push(selectedSauce);
         }
@@ -148,7 +148,7 @@ export class App {
     }
 
     choiceOption(optionNumber: number):void {
-        const selectedOption = menuList.option.find(option => option.id === optionNumber);
+        const selectedOption = MenuData.option.find(option => option.id === optionNumber);
         if (selectedOption && selectedOption.price) {
             this.receipe.push(selectedOption);        
             this.totalPrice = this.totalPrice + selectedOption.price;

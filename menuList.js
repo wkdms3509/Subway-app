@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.menuList = void 0;
+exports.MenuData = void 0;
 var menuName;
 (function (menuName) {
     menuName[menuName["\uC774\uD0C8\uB9AC\uC548\uBE44\uC5E0\uD2F0"] = 0] = "\uC774\uD0C8\uB9AC\uC548\uBE44\uC5E0\uD2F0";
@@ -79,7 +79,7 @@ var drink;
     drink[drink["\uD3A9\uC2DC"] = 3] = "\uD3A9\uC2DC";
     drink[drink["\uC81C\uB85C\uCF5C\uB77C"] = 4] = "\uC81C\uB85C\uCF5C\uB77C";
 })(drink || (drink = {}));
-exports.menuList = {
+exports.MenuData = {
     menu: [
         { id: 1, type: '메뉴', name: '이탈리안비엠티', price: 4900 },
         { id: 2, type: '메뉴', name: '이탈리안비엠티에그마요', price: 6500 },
