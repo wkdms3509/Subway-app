@@ -11,12 +11,12 @@ interface Receipe {
 export class App {
     receipe: Receipe[];
     totalPrice: number;
-    myNumber: number;
+    orderNumber: number;
 
     constructor() {
         this.receipe = [];
         this.totalPrice = 0;
-        this.myNumber = 0;
+        this.orderNumber = 0;
     }
 
     init(number: number) {
@@ -31,25 +31,25 @@ export class App {
                 this.showMenu();
                 break;
             case 4 :
-                this.choiceMenu(5);
+                this.selectMenu(5);
                 break;
             case 5 :
-                this.choiceSize(1);
+                this.selectSize(1);
                 break;
             case 6 :
-                this.choiceBread(2);
+                this.selectBread(2);
                 break;
             case 7 :
-                this.choiceCheese(3);
+                this.selectCheese(3);
                 break;
             case 8 :
-                this.choiceVegetable(5);
+                this.selectVegetable(5);
                 break;
             case 9 :
-                this.choiceSauce(4);
+                this.selectSauce(4);
                 break;
             case 10 :
-                this.choiceOption(2);
+                this.selectOption(2);
                 break;
             case 11 :
                 this.payForOrderDetail(10000);
@@ -71,9 +71,7 @@ export class App {
             // 포장
             const result = this.totalPrice - 2000;
             return result;
-        }
-        //매장식사
-        else if (!answer && vaccinePassNumber) {
+        } else if (!answer && vaccinePassNumber) {
             console.log('매장식사 가능');
         } else {
             throw "매장 이용이 불가능합니다.";
@@ -93,42 +91,42 @@ export class App {
         console.log('----------------');
     }
 
-    choiceMenu(menuNumber: number):void {
-        const selectedMenu = MenuData.menu.find(food => food.id === menuNumber);
-        if(selectedMenu && selectedMenu.price) {
-            this.receipe = [ selectedMenu ];
-            this.totalPrice = this.totalPrice + selectedMenu.price;
+    selectMenu(menuNumber: number) {
+        const selectedBreadMenu = MenuData.menu.find(food => food.id === menuNumber);
+        if(selectedBreadMenu && selectedBreadMenu.price) {
+            this.receipe = [ selectedBreadMenu ];
+            this.totalPrice = this.totalPrice + selectedBreadMenu.price;
         }
     }
 
-    choiceSize(sizeNumber: number):void {
-        const selectedSize = MenuData.size.find(breadSize => breadSize.id === sizeNumber);
+    selectSize(sizeNumber: number) {
+        const selectedBreadSize = MenuData.size.find(breadSize => breadSize.id === sizeNumber);
         // 기본 사이즈 (추가 요금 없음)
-        if(selectedSize?.id === 1) {
-            this.receipe.push(selectedSize);
+        if(selectedBreadSize?.id === 1) {
+            this.receipe.push(selectedBreadSize);
         }
         // 큰 사이즈 (추가 요금 발생)
-        if(selectedSize?.id === 2) {
-            this.receipe.push(selectedSize);
+        if(selectedBreadSize?.id === 2) {
+            this.receipe.push(selectedBreadSize);
             this.totalPrice = this.totalPrice + 2500;
         }
     }
 
-    choiceBread(breadNumber: number):void {
+    selectBread(breadNumber: number) {
         const selectedBread = MenuData.bread.find(bread => bread.id === breadNumber);
         if(selectedBread?.id) {
             this.receipe.push(selectedBread);
         }
     }
 
-    choiceCheese(cheeseNumber: number):void {
+    selectCheese(cheeseNumber: number) {
         const selectedCheese = MenuData.cheese.find(cheese => cheese.id === cheeseNumber);
         if (selectedCheese) {
             this.receipe.push(selectedCheese);
         }
     }
 
-    choiceVegetable(vegetableNumber?: number): void {
+    selectVegetable(vegetableNumber?: number) {
         const selectedVegetable = MenuData.vegetable.find(vegetable => vegetable.id === vegetableNumber);
         for (let i = 0; i < MenuData.vegetable.length; i++) {
             const allVegetable = MenuData.vegetable[i];
@@ -139,7 +137,7 @@ export class App {
         }
     }
 
-    choiceSauce(sauceNumber: number):void {
+    selectSauce(sauceNumber: number) {
         const selectedSauce = MenuData.sauce.find(sauce => sauce.id === sauceNumber);
         if (selectedSauce) {
             this.receipe.push(selectedSauce);
@@ -147,7 +145,7 @@ export class App {
         return ;
     }
 
-    choiceOption(optionNumber: number):void {
+    selectOption(optionNumber: number) {
         const selectedOption = MenuData.option.find(option => option.id === optionNumber);
         if (selectedOption && selectedOption.price) {
             this.receipe.push(selectedOption);        
@@ -159,7 +157,7 @@ export class App {
     payForOrderDetail(money: number): number {
         if (money === this.totalPrice || money >= this.totalPrice) {
             const result = money - this.totalPrice;
-            this.myNumber++;
+            this.orderNumber++;
             return result;
         }
         console.log(this.receipe);
