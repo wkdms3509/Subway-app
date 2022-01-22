@@ -5,7 +5,7 @@ interface Receipe {
     type?: string,
     name?: string,
     price?: number,
-    size?:string
+    size?:string,
 }
 
 export class App {

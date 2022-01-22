@@ -78,10 +78,10 @@ enum drink {
 }
 
 interface MenuInfo {
-    id: number;
-    type: menuType;
-    name: menuName;
-    price: number;
+    id: number,
+    type: menuType,
+    name: menuName,
+    price: number,
 }
 
 interface title {
@@ -91,7 +91,7 @@ interface title {
     cheese: string,
     vegetable: string,
     sauce: string,
-    option: string
+    option: string,
 }
 
 interface foodType {
@@ -99,7 +99,7 @@ interface foodType {
     type?: string,
     name?: string,
     price?: number,
-    size?:string
+    size?:string,
 }
 
 interface Options {
@@ -109,7 +109,7 @@ interface Options {
     cheese: Array<foodType>,
     vegetable: Array<foodType>,
     sauce: Array<foodType>,
-    option: Array<foodType>
+    option: Array<foodType>,
 }
 
 export const MenuData: Options = {

@@ -6,7 +6,7 @@ var App = /** @class */ (function () {
     function App() {
         this.receipe = [];
         this.totalPrice = 0;
-        this.myNumber = 0;
+        this.orderNumber = 0;
     }
     App.prototype.init = function (number) {
         switch (number) {
@@ -20,25 +20,25 @@ var App = /** @class */ (function () {
                 this.showMenu();
                 break;
             case 4:
-                this.choiceMenu(5);
+                this.selectMenu(5);
                 break;
             case 5:
-                this.choiceSize(1);
+                this.selectSize(1);
                 break;
             case 6:
-                this.choiceBread(2);
+                this.selectBread(2);
                 break;
             case 7:
-                this.choiceCheese(3);
+                this.selectCheese(3);
                 break;
             case 8:
-                this.choiceVegetable(5);
+                this.selectVegetable(5);
                 break;
             case 9:
-                this.choiceSauce(4);
+                this.selectSauce(4);
                 break;
             case 10:
-                this.choiceOption(2);
+                this.selectOption(2);
                 break;
             case 11:
                 this.payForOrderDetail(10000);
@@ -59,7 +59,6 @@ var App = /** @class */ (function () {
             var result = this.totalPrice - 2000;
             return result;
         }
-        //매장식사
         else if (!answer && vaccinePassNumber) {
             console.log('매장식사 가능');
         }
@@ -79,38 +78,38 @@ var App = /** @class */ (function () {
         console.log('8. 베지');
         console.log('----------------');
     };
-    App.prototype.choiceMenu = function (menuNumber) {
-        var selectedMenu = menuList_js_1.MenuData.menu.find(function (food) { return food.id === menuNumber; });
-        if (selectedMenu && selectedMenu.price) {
-            this.receipe = [selectedMenu];
-            this.totalPrice = this.totalPrice + selectedMenu.price;
+    App.prototype.selectMenu = function (menuNumber) {
+        var selectedBreadMenu = menuList_js_1.MenuData.menu.find(function (food) { return food.id === menuNumber; });
+        if (selectedBreadMenu && selectedBreadMenu.price) {
+            this.receipe = [selectedBreadMenu];
+            this.totalPrice = this.totalPrice + selectedBreadMenu.price;
         }
     };
-    App.prototype.choiceSize = function (sizeNumber) {
-        var selectedSize = menuList_js_1.MenuData.size.find(function (breadSize) { return breadSize.id === sizeNumber; });
+    App.prototype.selectSize = function (sizeNumber) {
+        var selectedBreadSize = menuList_js_1.MenuData.size.find(function (breadSize) { return breadSize.id === sizeNumber; });
         // 기본 사이즈 (추가 요금 없음)
-        if ((selectedSize === null || selectedSize === void 0 ? void 0 : selectedSize.id) === 1) {
-            this.receipe.push(selectedSize);
+        if ((selectedBreadSize === null || selectedBreadSize === void 0 ? void 0 : selectedBreadSize.id) === 1) {
+            this.receipe.push(selectedBreadSize);
         }
         // 큰 사이즈 (추가 요금 발생)
-        if ((selectedSize === null || selectedSize === void 0 ? void 0 : selectedSize.id) === 2) {
-            this.receipe.push(selectedSize);
+        if ((selectedBreadSize === null || selectedBreadSize === void 0 ? void 0 : selectedBreadSize.id) === 2) {
+            this.receipe.push(selectedBreadSize);
             this.totalPrice = this.totalPrice + 2500;
         }
     };
-    App.prototype.choiceBread = function (breadNumber) {
+    App.prototype.selectBread = function (breadNumber) {
         var selectedBread = menuList_js_1.MenuData.bread.find(function (bread) { return bread.id === breadNumber; });
         if (selectedBread === null || selectedBread === void 0 ? void 0 : selectedBread.id) {
             this.receipe.push(selectedBread);
         }
     };
-    App.prototype.choiceCheese = function (cheeseNumber) {
+    App.prototype.selectCheese = function (cheeseNumber) {
         var selectedCheese = menuList_js_1.MenuData.cheese.find(function (cheese) { return cheese.id === cheeseNumber; });
         if (selectedCheese) {
             this.receipe.push(selectedCheese);
         }
     };
-    App.prototype.choiceVegetable = function (vegetableNumber) {
+    App.prototype.selectVegetable = function (vegetableNumber) {
         var selectedVegetable = menuList_js_1.MenuData.vegetable.find(function (vegetable) { return vegetable.id === vegetableNumber; });
         for (var i = 0; i < menuList_js_1.MenuData.vegetable.length; i++) {
             var allVegetable = menuList_js_1.MenuData.vegetable[i];
@@ -120,14 +119,14 @@ var App = /** @class */ (function () {
             }
         }
     };
-    App.prototype.choiceSauce = function (sauceNumber) {
+    App.prototype.selectSauce = function (sauceNumber) {
         var selectedSauce = menuList_js_1.MenuData.sauce.find(function (sauce) { return sauce.id === sauceNumber; });
         if (selectedSauce) {
             this.receipe.push(selectedSauce);
         }
         return;
     };
-    App.prototype.choiceOption = function (optionNumber) {
+    App.prototype.selectOption = function (optionNumber) {
         var selectedOption = menuList_js_1.MenuData.option.find(function (option) { return option.id === optionNumber; });
         if (selectedOption && selectedOption.price) {
             this.receipe.push(selectedOption);
@@ -138,7 +137,7 @@ var App = /** @class */ (function () {
     App.prototype.payForOrderDetail = function (money) {
         if (money === this.totalPrice || money >= this.totalPrice) {
             var result = money - this.totalPrice;
-            this.myNumber++;
+            this.orderNumber++;
             return result;
         }
         console.log(this.receipe);
